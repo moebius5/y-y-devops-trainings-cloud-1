@@ -4,7 +4,7 @@ FROM golang:1.21 AS build-stage
 WORKDIR /app
 
 COPY catgpt/ ./
-RUN ls -lha
+
 RUN go mod download && CGO_ENABLED=0 go build -o /catgpt
 
 # Deploy the application binary into a lean image

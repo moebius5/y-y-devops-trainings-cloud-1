@@ -5,3 +5,12 @@ services:
     image: "cr.yandex/crp9vpda7crad1c4a2d8/catgpt:latest"
     restart: always
     network_mode: "host"
+  unifiedagent:
+    container_name: unifiedagent
+    image: "cr.yandex/yc/unified-agent"
+    environment:
+      FOLDER_ID: "${folder_id}"
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /ua:/etc/yandex/unified_agent/conf.d
